@@ -1,0 +1,1237 @@
+{
+  "network": "Studionet (chain 61999)",
+  "rpc": "https://studio.genlayer.com/api",
+  "contract": {
+    "network": "studionet",
+    "chainId": 61999,
+    "rpc": "https://studio.genlayer.com/api",
+    "address": "0xDAC017B334D2c245A08C38DfB88852829818225A",
+    "deployTransaction": "0x65a17015469280da6917e51450afb03957f394146737f28cf040a546cc973339",
+    "deployer": "0x4D5de1b8D3236C9ceAd6671FD034429fF8dcaA10",
+    "sourceSha256": "0x589fd89bd778edcd6f82a6801dfa0cbb2b8a3bae36dddbb430a0a08f47a5f650",
+    "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+    "version": "1.0.0",
+    "deployedAt": "2026-11-11T14:56:11.914Z",
+    "info": {
+      "classes": [
+        "LOOPHOLE",
+        "WORKING",
+        "OVERREACH",
+        "FINE",
+        "INCONCLUSIVE"
+      ],
+      "kinds": [
+        "house",
+        "policy",
+        "terms",
+        "bylaw",
+        "protocol",
+        "game",
+        "other"
+      ],
+      "limits": {
+        "duplicate_permille": 700,
+        "max_accepted_amendments": 12,
+        "max_active_scenarios": 10,
+        "max_amendment_records": 20,
+        "max_purpose_chars": 300,
+        "max_rule_chars": 800,
+        "max_scenario_chars": 500,
+        "max_stored_scenarios": 20,
+        "max_title_chars": 100,
+        "min_purpose_chars": 20,
+        "min_rule_chars": 20,
+        "min_scenario_chars": 30,
+        "min_title_chars": 3
+      },
+      "name": "Loophole",
+      "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+      "scoring": {
+        "loophole": 3,
+        "overreach": 2,
+        "refuted": -1
+      },
+      "version": "1.0.0"
+    },
+    "deployedHere": true
+  },
+  "accounts": {
+    "owner": "0x4D5de1b8D3236C9ceAd6671FD034429fF8dcaA10",
+    "alice": "0xC5E279743624bb44b34A8cBa3E2b20cD222657b4",
+    "bob": "0x6d40Ae8589C92CB9f10F27Ba704cCa5091033141"
+  },
+  "startedAt": "2026-11-11T14:56:11.914Z",
+  "finishedAt": "2026-11-11T15:08:04.822Z",
+  "steps": [
+    {
+      "label": "Register the rule",
+      "who": "owner",
+      "fn": "register_rule",
+      "hash": "0xb784ed70ee594589938a6987751674450893b2b81de44af9ac067900d25859ed",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 35
+    },
+    {
+      "label": "A stranger tries to amend the rule",
+      "who": "bob",
+      "fn": "amend_rule",
+      "hash": "0xac68bb94c78dc28c86ab94fd68b4ed03a380d2884cdfd1a4cea72917763b2aa5",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 29
+    },
+    {
+      "label": "Register the same rule again",
+      "who": "owner",
+      "fn": "register_rule",
+      "hash": "0xa41db65737925b365cd42c14b96437d2c9f0c5b5a8c0f64f5c05312e51e84116",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 20
+    },
+    {
+      "label": "A scenario that addresses the evaluator",
+      "who": "alice",
+      "fn": "submit_scenario",
+      "hash": "0xd648b74c0b819d4c9c2a4406e21e0a517a363dc5141c731abbc8c8751cabdd2f",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 42
+    },
+    {
+      "label": "A scenario that is too short",
+      "who": "alice",
+      "fn": "submit_scenario",
+      "hash": "0xb94e64b79493f4fdc33e8143cad9abb7c2bbd81958098d39632107e90a1f36b3",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 45
+    },
+    {
+      "label": "A claim outside the vocabulary",
+      "who": "alice",
+      "fn": "submit_scenario",
+      "hash": "0x15c7d5984febdeca2bb2619c7942897f106fc5dadcbd414d8250ddec9ed3fe75",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 66
+    },
+    {
+      "label": "Submit \"loophole\" (claim LOOPHOLE)",
+      "who": "alice",
+      "fn": "submit_scenario",
+      "hash": "0x072023275318956bac28693e03296fbf236585c8c621fbe2432539ac8fc39313",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 35
+    },
+    {
+      "label": "A near-copy of an existing scenario",
+      "who": "bob",
+      "fn": "submit_scenario",
+      "hash": "0x3301b715e54ba49d0299df2a6527923d48591ff2d2b739e5d8f447fc5b3a6a5e",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 13
+    },
+    {
+      "label": "Submit \"overreach\" (claim OVERREACH)",
+      "who": "bob",
+      "fn": "submit_scenario",
+      "hash": "0xcff26be98a9d549c81fbbc483510cfbf4a2de1fb4e1dbc7668dbb89a2c2f42fd",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 16
+    },
+    {
+      "label": "Submit \"hoarder\" (claim LOOPHOLE)",
+      "who": "alice",
+      "fn": "submit_scenario",
+      "hash": "0x66d6c04b362480eef4116e28737f0a7985b0bf28a1c1a6f8ee742758df3a6d65",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 13
+    },
+    {
+      "label": "Submit \"ordinary\" (claim OVERREACH)",
+      "who": "bob",
+      "fn": "submit_scenario",
+      "hash": "0x4eb12c7a32d4f9c25b053129a21723595c079ea1a60a8123c36ae1b91d2bc653",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 10
+    },
+    {
+      "label": "Judge \"loophole\"",
+      "who": "owner",
+      "fn": "judge_scenario",
+      "hash": "0xb87f2c2c9d70cbdb4b40a597f68141ce57c0c1091f3039cfa994b66effdb4c9a",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 42
+    },
+    {
+      "label": "Judge \"overreach\"",
+      "who": "owner",
+      "fn": "judge_scenario",
+      "hash": "0x89c32cdb0d6f7a4006c03b583ea80d804a4b0d411e5dc7761be05c19bf098128",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 76
+    },
+    {
+      "label": "Judge \"hoarder\"",
+      "who": "owner",
+      "fn": "judge_scenario",
+      "hash": "0x20fb0f8a42d66609443c2c7059919c2ab639702a0d98ee4354c2318c426d2e55",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 57
+    },
+    {
+      "label": "Judge \"ordinary\"",
+      "who": "owner",
+      "fn": "judge_scenario",
+      "hash": "0x15e715d7c72ad3a6ba026a25369071984b6961297c302eaef8ef88bb99e46139",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 26
+    },
+    {
+      "label": "Good amendment (closes the loophole)",
+      "who": "owner",
+      "fn": "amend_rule",
+      "hash": "0x9bb5ccc343b3638ecd65c8191a78dc5fdd826d18ef095957788058bd440ab949",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 23
+    },
+    {
+      "label": "Bad amendment (an hour limit breaks ordinary rides)",
+      "who": "owner",
+      "fn": "amend_rule",
+      "hash": "0x06b0eca814d7a4a8eef288dc089f0460df31162f36f9ed06bbfcc4603522f98d",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 111
+    },
+    {
+      "label": "Retire the rule",
+      "who": "owner",
+      "fn": "retire_rule",
+      "hash": "0xa91197eef663342a4a2275db815494e7c5d4e72bda346a7c0b37e482dc0e42de",
+      "statusName": "ACCEPTED",
+      "finality": "accepted",
+      "outcome": "accepted",
+      "seconds": 7
+    },
+    {
+      "label": "A scenario against a retired rule",
+      "who": "alice",
+      "fn": "submit_scenario",
+      "hash": "0x74657b56ef5c118759a25d88697739d665e42859ce1d8ef040b13d51b9cf412f",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 7
+    },
+    {
+      "label": "An amendment to a retired rule",
+      "who": "owner",
+      "fn": "amend_rule",
+      "hash": "0x3bd015f1ecf9a7520f187c172a6c68c109960cf937793d128c82f187cde265f8",
+      "statusName": "ACCEPTED",
+      "finality": null,
+      "outcome": "rejected by contract",
+      "seconds": 7
+    }
+  ],
+  "scenarios": [
+    {
+      "key": "loophole",
+      "record": {
+        "attestation": "0xb818d21a49f18ff32c27bf7d5a7aeed45512a9cebba3452b0a5dabb681d1be92",
+        "author": "0xc5e279743624bb44b34a8cba3e2b20cd222657b4",
+        "claim": "LOOPHOLE",
+        "claim_result": "CONFIRMED",
+        "compliant": "YES",
+        "compliant_version": 1,
+        "evaluated_at": 1794409306,
+        "evaluated_by": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10",
+        "evidence": {
+          "act_words": "docks a bike for ten seconds every 23 hours",
+          "effect_words": "keeps it parked outside their home for a whole month",
+          "purpose_words": "Keep shared bikes circulating so that other members can find an available bike",
+          "rule_words": "Returning the bike to any dock ends the checkout and resets the timer"
+        },
+        "failure_reason": "",
+        "first_class": "LOOPHOLE",
+        "first_compliant": "YES",
+        "flags": [],
+        "harmful": "YES",
+        "judged_version": 1,
+        "klass": "LOOPHOLE",
+        "reason": "The brief docking technically resets the timer per the rule's literal words, but monopolizing the bike for a month defeats the purpose of keeping bikes available to other members.",
+        "rechecks": [],
+        "rule_id": "RUL-0001",
+        "scenario_id": "SCN-0001",
+        "state": "SETTLED",
+        "submitted_at": 1794409213,
+        "text": "A member docks a bike for ten seconds every 23 hours, immediately checks the same bike out again, and keeps it parked outside their home for a whole month.",
+        "text_digest": "0x40f2ee56775f201490f588426b7d9d8cdf270678d84d965b5082156b2c0b2841"
+      },
+      "expectedClass": "LOOPHOLE",
+      "attempt": 1
+    },
+    {
+      "key": "overreach",
+      "record": {
+        "attestation": "0xe4064bfa3a4a2cb6690403311e5fa8d549d430261bd32a447d0c492daf9a2e7e",
+        "author": "0x6d40ae8589c92cb9f10f27ba704cca5091033141",
+        "claim": "OVERREACH",
+        "claim_result": "REFUTED",
+        "compliant": "NO",
+        "compliant_version": 1,
+        "evaluated_at": 1794409350,
+        "evaluated_by": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10",
+        "evidence": {
+          "act_words": "checkout reaches 25 hours",
+          "effect_words": "checkout reaches 25 hours",
+          "purpose_words": "other members can find an available bike",
+          "rule_words": "at most 24 consecutive hours"
+        },
+        "failure_reason": "",
+        "first_class": "WORKING",
+        "first_compliant": "NO",
+        "flags": [],
+        "harmful": "YES",
+        "judged_version": 1,
+        "klass": "WORKING",
+        "reason": "The rule sets a 24-hour maximum, and keeping one longer can reduce availability to others.",
+        "rechecks": [],
+        "rule_id": "RUL-0001",
+        "scenario_id": "SCN-0002",
+        "state": "SETTLED",
+        "submitted_at": 1794409263,
+        "text": "A member's checkout reaches 25 hours because the city closed the only nearby dock during a power outage, and the member returns the bike the moment the dock reopens.",
+        "text_digest": "0x06c49a282fd17dcd6ab4143306e3b9853383e130d6821014e3f7a11d8551d655"
+      },
+      "expectedClass": "OVERREACH",
+      "attempt": 1
+    },
+    {
+      "key": "hoarder",
+      "record": {
+        "attestation": "0x87d3a868eefa48577dc89bf7ed0dc2e1bd799b448b330f6780a912ec88db66f4",
+        "author": "0xc5e279743624bb44b34a8cba3e2b20cd222657b4",
+        "claim": "LOOPHOLE",
+        "claim_result": "REFUTED",
+        "compliant": "NO",
+        "compliant_version": 1,
+        "evaluated_at": 1794409428,
+        "evaluated_by": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10",
+        "evidence": {
+          "act_words": "never returns it, riding it every day for three weeks",
+          "effect_words": "never returns it, riding it every day for three weeks",
+          "purpose_words": "other members can find an available bike when they need one",
+          "rule_words": "keep a bike for at most 24 consecutive hours"
+        },
+        "failure_reason": "",
+        "first_class": "WORKING",
+        "first_compliant": "NO",
+        "flags": [],
+        "harmful": "YES",
+        "judged_version": 1,
+        "klass": "WORKING",
+        "reason": "Keeping the bike for three weeks far exceeds the 24-hour limit and removes it from circulation entirely.",
+        "rechecks": [],
+        "rule_id": "RUL-0001",
+        "scenario_id": "SCN-0003",
+        "state": "SETTLED",
+        "submitted_at": 1794409281,
+        "text": "A member takes a bike on Monday and never returns it, riding it every day for three weeks without once visiting a dock.",
+        "text_digest": "0x30fded70ad7a05c108239672693536fae5299eefac44717b0507c0a4a8ac4c11"
+      },
+      "expectedClass": "WORKING",
+      "attempt": 1
+    },
+    {
+      "key": "ordinary",
+      "record": {
+        "attestation": "0x614cd0a29d36801a0291fff545f100f7e3292960e9ebcf8eb8c8179bf3966732",
+        "author": "0x6d40ae8589c92cb9f10f27ba704cca5091033141",
+        "claim": "OVERREACH",
+        "claim_result": "REFUTED",
+        "compliant": "YES",
+        "compliant_version": 1,
+        "evaluated_at": 1794409488,
+        "evaluated_by": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10",
+        "evidence": {
+          "act_words": "returns it to the dock",
+          "effect_words": "a different member takes it",
+          "purpose_words": "Keep shared bikes circulating",
+          "rule_words": "Returning the bike to any dock"
+        },
+        "failure_reason": "",
+        "first_class": "FINE",
+        "first_compliant": "YES",
+        "flags": [],
+        "harmful": "NO",
+        "judged_version": 1,
+        "klass": "FINE",
+        "reason": "The bike was returned to a dock and then used by another member.",
+        "rechecks": [],
+        "rule_id": "RUL-0001",
+        "scenario_id": "SCN-0004",
+        "state": "SETTLED",
+        "submitted_at": 1794409295,
+        "text": "A member rides a bike to the library, returns it to the dock after two hours, and a different member takes it a few minutes later.",
+        "text_digest": "0xb272a3bcd36cb50b4699a0b2d6f5c5d2e084d93f6f69de12ef3ec5034ec9de05"
+      },
+      "expectedClass": "FINE",
+      "attempt": 1
+    }
+  ],
+  "amendments": [
+    {
+      "label": "Good amendment (closes the loophole)",
+      "record": {
+        "amendment_id": "AMD-0001",
+        "at": 1794409522,
+        "attestation": "0xbca835699b5d702c69d85e1fa1ad246b1753e1cdb6254f844de0210d2584f709",
+        "base_version": 1,
+        "fixed": [
+          "SCN-0001"
+        ],
+        "note": "",
+        "proposer": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10",
+        "regressions": [],
+        "result": "ACCEPTED",
+        "results": [
+          {
+            "change": "FIXED",
+            "compliant": "NO",
+            "flags": [],
+            "now": "WORKING",
+            "rule_words": "within one hour",
+            "scenario_id": "SCN-0001",
+            "was": "LOOPHOLE"
+          },
+          {
+            "change": "HELD",
+            "compliant": "NO",
+            "flags": [],
+            "now": "WORKING",
+            "rule_words": "at most 24 consecutive hours",
+            "scenario_id": "SCN-0002",
+            "was": "WORKING"
+          },
+          {
+            "change": "HELD",
+            "compliant": "NO",
+            "flags": [],
+            "now": "WORKING",
+            "rule_words": "at most 24 consecutive hours",
+            "scenario_id": "SCN-0003",
+            "was": "WORKING"
+          },
+          {
+            "change": "HELD",
+            "compliant": "YES",
+            "flags": [],
+            "now": "FINE",
+            "rule_words": "Returning the bike to a dock ends the checkout",
+            "scenario_id": "SCN-0004",
+            "was": "FINE"
+          }
+        ],
+        "rule_id": "RUL-0001",
+        "still_open": [],
+        "text": "A member may keep a bike for at most 24 consecutive hours. Returning the bike to a dock ends the checkout, but checking the same bike out again within one hour of returning it continues the same checkout and the timer does not reset.",
+        "text_digest": "0x4b9df4c4f2f2d44007b8974bd4310dbb3b790e4f64e3a4b56ca9134ccb96f449"
+      },
+      "expectedResult": "ACCEPTED"
+    },
+    {
+      "label": "Bad amendment (an hour limit breaks ordinary rides)",
+      "record": {
+        "amendment_id": "AMD-0002",
+        "at": 1794409548,
+        "attestation": "0x80b454da5445afe76cd874fe0872facf40cbc594ff98b4568c72bf35c889f873",
+        "base_version": 2,
+        "fixed": [],
+        "note": "REGRESSION",
+        "proposer": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10",
+        "regressions": [
+          "SCN-0001",
+          "SCN-0004"
+        ],
+        "result": "REJECTED",
+        "results": [
+          {
+            "change": "REGRESSED",
+            "compliant": "YES",
+            "flags": [],
+            "now": "LOOPHOLE",
+            "rule_words": "Returning the bike to any dock ends the checkout",
+            "scenario_id": "SCN-0001",
+            "was": "WORKING"
+          },
+          {
+            "change": "HELD",
+            "compliant": "NO",
+            "flags": [],
+            "now": "WORKING",
+            "rule_words": "keep a bike for at most one hour",
+            "scenario_id": "SCN-0002",
+            "was": "WORKING"
+          },
+          {
+            "change": "HELD",
+            "compliant": "NO",
+            "flags": [],
+            "now": "WORKING",
+            "rule_words": "keep a bike for at most one hour",
+            "scenario_id": "SCN-0003",
+            "was": "WORKING"
+          },
+          {
+            "change": "REGRESSED",
+            "compliant": "NO",
+            "flags": [],
+            "now": "OVERREACH",
+            "rule_words": "keep a bike for at most one hour",
+            "scenario_id": "SCN-0004",
+            "was": "FINE"
+          }
+        ],
+        "rule_id": "RUL-0001",
+        "still_open": [],
+        "text": "A member may keep a bike for at most one hour. Returning the bike to any dock ends the checkout.",
+        "text_digest": "0x24c5bef78b5f6051b76e7ca08728bc8cdfb2d92aa0cf98e32daaeb530687098c"
+      },
+      "expectedResult": "REJECTED"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "invariant",
+      "area": "contract",
+      "name": "is Loophole",
+      "ok": true,
+      "detail": "Loophole"
+    },
+    {
+      "kind": "invariant",
+      "area": "contract",
+      "name": "publishes its limits and scoring",
+      "ok": true,
+      "detail": "{\"loophole\":3,\"overreach\":2,\"refuted\":-1}"
+    },
+    {
+      "kind": "invariant",
+      "area": "register",
+      "name": "rule is stored as submitted",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "register",
+      "name": "owner is the sender, version 1, active",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "register",
+      "name": "a new rule is UNTESTED",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A stranger tries to amend the rule: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A stranger tries to amend the rule: reason mentions \"only the owner\"",
+      "ok": true,
+      "detail": "only the owner may amend this rule"
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "Register the same rule again: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "Register the same rule again: reason mentions \"already registered\"",
+      "ok": true,
+      "detail": "this rule is already registered as RUL-0001"
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A scenario that addresses the evaluator: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A scenario that addresses the evaluator: reason mentions \"evaluator\"",
+      "ok": true,
+      "detail": "scenario_text must describe conduct or wording, not address the evaluator"
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A scenario that is too short: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A scenario that is too short: reason mentions \"too short\"",
+      "ok": true,
+      "detail": "scenario_text is too short"
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A claim outside the vocabulary: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A claim outside the vocabulary: reason mentions \"claim must be\"",
+      "ok": true,
+      "detail": "claim must be LOOPHOLE or OVERREACH"
+    },
+    {
+      "kind": "invariant",
+      "area": "submit loophole",
+      "name": "is stored pending with its claim and author",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A near-copy of an existing scenario: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A near-copy of an existing scenario: reason mentions \"too similar\"",
+      "ok": true,
+      "detail": "this scenario is too similar to SCN-0001"
+    },
+    {
+      "kind": "invariant",
+      "area": "submit overreach",
+      "name": "is stored pending with its claim and author",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "submit hoarder",
+      "name": "is stored pending with its claim and author",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "submit ordinary",
+      "name": "is stored pending with its claim and author",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "judge loophole (attempt 1)",
+      "name": "scenario is settled",
+      "ok": true,
+      "detail": "SETTLED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge loophole (attempt 1)",
+      "name": "class is derived from the two answers",
+      "ok": true,
+      "detail": "YES/YES -> LOOPHOLE"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge loophole (attempt 1)",
+      "name": "claim result follows from class and claim",
+      "ok": true,
+      "detail": "LOOPHOLE vs LOOPHOLE -> CONFIRMED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge loophole (attempt 1)",
+      "name": "attestation recomputes from stored state",
+      "ok": true,
+      "detail": "0xb818d21a49f18ff32c27bf7d5a7aeed45512a9cebba3452b0a5dabb681d1be92"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge loophole (attempt 1)",
+      "name": "judge is recorded",
+      "ok": true,
+      "detail": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge loophole (attempt 1)",
+      "name": "a conclusive finding cites all four phrases",
+      "ok": true,
+      "detail": "69/43/78/52"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge loophole (attempt 1)",
+      "name": "a conclusive finding has no flags",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario loophole",
+      "name": "class is LOOPHOLE",
+      "ok": true,
+      "detail": "observed LOOPHOLE"
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario loophole",
+      "name": "claim is CONFIRMED",
+      "ok": true,
+      "detail": "observed CONFIRMED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge overreach (attempt 1)",
+      "name": "scenario is settled",
+      "ok": true,
+      "detail": "SETTLED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge overreach (attempt 1)",
+      "name": "class is derived from the two answers",
+      "ok": true,
+      "detail": "NO/YES -> WORKING"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge overreach (attempt 1)",
+      "name": "claim result follows from class and claim",
+      "ok": true,
+      "detail": "OVERREACH vs WORKING -> REFUTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge overreach (attempt 1)",
+      "name": "attestation recomputes from stored state",
+      "ok": true,
+      "detail": "0xe4064bfa3a4a2cb6690403311e5fa8d549d430261bd32a447d0c492daf9a2e7e"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge overreach (attempt 1)",
+      "name": "judge is recorded",
+      "ok": true,
+      "detail": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge overreach (attempt 1)",
+      "name": "a conclusive finding cites all four phrases",
+      "ok": true,
+      "detail": "28/25/40/25"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge overreach (attempt 1)",
+      "name": "a conclusive finding has no flags",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario overreach",
+      "name": "class is OVERREACH",
+      "ok": false,
+      "detail": "observed WORKING"
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario overreach",
+      "name": "claim is CONFIRMED",
+      "ok": false,
+      "detail": "observed REFUTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge hoarder (attempt 1)",
+      "name": "scenario is settled",
+      "ok": true,
+      "detail": "SETTLED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge hoarder (attempt 1)",
+      "name": "class is derived from the two answers",
+      "ok": true,
+      "detail": "NO/YES -> WORKING"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge hoarder (attempt 1)",
+      "name": "claim result follows from class and claim",
+      "ok": true,
+      "detail": "LOOPHOLE vs WORKING -> REFUTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge hoarder (attempt 1)",
+      "name": "attestation recomputes from stored state",
+      "ok": true,
+      "detail": "0x87d3a868eefa48577dc89bf7ed0dc2e1bd799b448b330f6780a912ec88db66f4"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge hoarder (attempt 1)",
+      "name": "judge is recorded",
+      "ok": true,
+      "detail": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge hoarder (attempt 1)",
+      "name": "a conclusive finding cites all four phrases",
+      "ok": true,
+      "detail": "44/53/59/53"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge hoarder (attempt 1)",
+      "name": "a conclusive finding has no flags",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario hoarder",
+      "name": "class is WORKING",
+      "ok": true,
+      "detail": "observed WORKING"
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario hoarder",
+      "name": "claim is REFUTED",
+      "ok": true,
+      "detail": "observed REFUTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge ordinary (attempt 1)",
+      "name": "scenario is settled",
+      "ok": true,
+      "detail": "SETTLED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge ordinary (attempt 1)",
+      "name": "class is derived from the two answers",
+      "ok": true,
+      "detail": "YES/NO -> FINE"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge ordinary (attempt 1)",
+      "name": "claim result follows from class and claim",
+      "ok": true,
+      "detail": "OVERREACH vs FINE -> REFUTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge ordinary (attempt 1)",
+      "name": "attestation recomputes from stored state",
+      "ok": true,
+      "detail": "0x614cd0a29d36801a0291fff545f100f7e3292960e9ebcf8eb8c8179bf3966732"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge ordinary (attempt 1)",
+      "name": "judge is recorded",
+      "ok": true,
+      "detail": "0x4d5de1b8d3236c9cead6671fd034429ff8dcaa10"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge ordinary (attempt 1)",
+      "name": "a conclusive finding cites all four phrases",
+      "ok": true,
+      "detail": "30/22/29/27"
+    },
+    {
+      "kind": "invariant",
+      "area": "judge ordinary (attempt 1)",
+      "name": "a conclusive finding has no flags",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario ordinary",
+      "name": "class is FINE",
+      "ok": true,
+      "detail": "observed FINE"
+    },
+    {
+      "kind": "expectation",
+      "area": "scenario ordinary",
+      "name": "claim is REFUTED",
+      "ok": true,
+      "detail": "observed REFUTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "standing",
+      "name": "rule tally equals the stored classes",
+      "ok": true,
+      "detail": "{\"FINE\":1,\"LOOPHOLE\":1,\"OVERREACH\":0,\"WORKING\":2}"
+    },
+    {
+      "kind": "invariant",
+      "area": "standing",
+      "name": "rule health follows from the tally",
+      "ok": true,
+      "detail": "LEAKY"
+    },
+    {
+      "kind": "invariant",
+      "area": "challengers",
+      "name": "record of 0xc5e27974 matches its settled scenarios",
+      "ok": true,
+      "detail": "{\"address\":\"0xc5e279743624bb44b34a8cba3e2b20cd222657b4\",\"inconclusive\":0,\"loopholes\":1,\"overreaches\":0,\"refuted\":1,\"score\":2}"
+    },
+    {
+      "kind": "invariant",
+      "area": "challengers",
+      "name": "record of 0x6d40ae85 matches its settled scenarios",
+      "ok": true,
+      "detail": "{\"address\":\"0x6d40ae8589c92cb9f10f27ba704cca5091033141\",\"inconclusive\":0,\"loopholes\":0,\"overreaches\":0,\"refuted\":2,\"score\":-2}"
+    },
+    {
+      "kind": "invariant",
+      "area": "challengers",
+      "name": "leaderboard is sorted by score, highest first",
+      "ok": true,
+      "detail": "2,-2"
+    },
+    {
+      "kind": "invariant",
+      "area": "standing",
+      "name": "the leaderboard lists both challengers",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "exactly one amendment was recorded",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "result is one of ACCEPTED, REJECTED, INCONCLUSIVE",
+      "ok": true,
+      "detail": "ACCEPTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "the amendment records the version it was tested against",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: version moved by exactly one",
+      "ok": true,
+      "detail": "1 -> 2"
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: the rule text is the proposed text",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: history gained the new wording",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: the purpose is untouched",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: no scenario that worked was broken (the ratchet)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: no regression is recorded",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: stored classes match the recorded results",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "accepted: tally matches the stored classes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment good",
+      "name": "attestation recomputes from stored state",
+      "ok": true,
+      "detail": "0xbca835699b5d702c69d85e1fa1ad246b1753e1cdb6254f844de0210d2584f709"
+    },
+    {
+      "kind": "expectation",
+      "area": "amendment good",
+      "name": "result is ACCEPTED",
+      "ok": true,
+      "detail": "observed ACCEPTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "exactly one amendment was recorded",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "result is one of ACCEPTED, REJECTED, INCONCLUSIVE",
+      "ok": true,
+      "detail": "REJECTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "the amendment records the version it was tested against",
+      "ok": true,
+      "detail": "2"
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "rejected: version and text are unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "rejected: no scenario was reclassified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "rejected: names at least one regression",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "rejected: every named regression was working and is now failing",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "amendment bad",
+      "name": "attestation recomputes from stored state",
+      "ok": true,
+      "detail": "0x80b454da5445afe76cd874fe0872facf40cbc594ff98b4568c72bf35c889f873"
+    },
+    {
+      "kind": "expectation",
+      "area": "amendment bad",
+      "name": "result is REJECTED",
+      "ok": true,
+      "detail": "observed REJECTED"
+    },
+    {
+      "kind": "invariant",
+      "area": "retire",
+      "name": "the rule is retired and keeps its history",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A scenario against a retired rule: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "A scenario against a retired rule: reason mentions \"retired\"",
+      "ok": true,
+      "detail": "rule is retired"
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "An amendment to a retired rule: rejected by the contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "rejections",
+      "name": "An amendment to a retired rule: reason mentions \"retired\"",
+      "ok": true,
+      "detail": "rule is retired"
+    },
+    {
+      "kind": "invariant",
+      "area": "totals",
+      "name": "one rule was added",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "kind": "invariant",
+      "area": "totals",
+      "name": "every accepted submission was counted",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "kind": "invariant",
+      "area": "totals",
+      "name": "every judgement was counted as settled",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "kind": "invariant",
+      "area": "totals",
+      "name": "confirmed loopholes and overreaches add up",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "kind": "invariant",
+      "area": "totals",
+      "name": "both amendments were recorded",
+      "ok": true,
+      "detail": "2"
+    },
+    {
+      "kind": "invariant",
+      "area": "totals",
+      "name": "accepted plus rejected never exceeds recorded",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "finalRule": {
+    "version": 2,
+    "status": "RETIRED",
+    "health": "NO_KNOWN_FLAWS",
+    "tally": {
+      "FINE": 1,
+      "LOOPHOLE": 0,
+      "OVERREACH": 0,
+      "WORKING": 3
+    }
+  },
+  "leaderboard": [
+    {
+      "address": "0xc5e279743624bb44b34a8cba3e2b20cd222657b4",
+      "inconclusive": 0,
+      "loopholes": 1,
+      "overreaches": 0,
+      "refuted": 1,
+      "score": 2
+    },
+    {
+      "address": "0x6d40ae8589c92cb9f10f27ba704cca5091033141",
+      "inconclusive": 0,
+      "loopholes": 0,
+      "overreaches": 0,
+      "refuted": 2,
+      "score": -2
+    }
+  ]
+}
