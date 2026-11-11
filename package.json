@@ -1,0 +1,22 @@
+{
+  "name": "loophole",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Regression tests for rules. A GenLayer Intelligent Contract for Studionet that turns loopholes and overreach into permanent test cases.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "python -m pytest -q",
+    "test:node": "node --test tests/node/receipt.test.mjs tests/node/e2e_lib.test.mjs tests/node/e2e_rehearsal.test.mjs",
+    "lint:contract": "genvm-lint check contracts/loophole.py",
+    "mutate": "python tools/mutate.py",
+    "deploy:contract": "node scripts/deploy.mjs",
+    "e2e": "node scripts/e2e.mjs"
+  },
+  "dependencies": {
+    "genlayer-js": "1.1.8"
+  }
+}

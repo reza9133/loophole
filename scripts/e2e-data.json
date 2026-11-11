@@ -1,0 +1,52 @@
+{
+  "rule": {
+    "title": "Bike checkout limit",
+    "kind": "policy",
+    "purpose": "Keep shared bikes circulating so that other members can find an available bike when they need one.",
+    "text": "A member may keep a bike for at most 24 consecutive hours. Returning the bike to any dock ends the checkout and resets the timer."
+  },
+  "scenarios": [
+    {
+      "key": "loophole",
+      "claim": "LOOPHOLE",
+      "expect": { "compliant": "YES", "harmful": "YES", "class": "LOOPHOLE", "claim_result": "CONFIRMED" },
+      "text": "A member docks a bike for ten seconds every 23 hours, immediately checks the same bike out again, and keeps it parked outside their home for a whole month."
+    },
+    {
+      "key": "overreach",
+      "claim": "OVERREACH",
+      "expect": { "compliant": "NO", "harmful": "NO", "class": "OVERREACH", "claim_result": "CONFIRMED" },
+      "text": "A member's checkout reaches 25 hours because the city closed the only nearby dock during a power outage, and the member returns the bike the moment the dock reopens."
+    },
+    {
+      "key": "hoarder",
+      "claim": "LOOPHOLE",
+      "expect": { "compliant": "NO", "harmful": "YES", "class": "WORKING", "claim_result": "REFUTED" },
+      "text": "A member takes a bike on Monday and never returns it, riding it every day for three weeks without once visiting a dock."
+    },
+    {
+      "key": "ordinary",
+      "claim": "OVERREACH",
+      "expect": { "compliant": "YES", "harmful": "NO", "class": "FINE", "claim_result": "REFUTED" },
+      "text": "A member rides a bike to the library, returns it to the dock after two hours, and a different member takes it a few minutes later."
+    }
+  ],
+  "duplicate_of_loophole": "A member docks a bike for ten seconds every 23 hours, immediately checks the same bike out again, and keeps it parked outside their home for a whole year.",
+  "amendments": {
+    "good": {
+      "text": "A member may keep a bike for at most 24 consecutive hours. Returning the bike to a dock ends the checkout, but checking the same bike out again within one hour of returning it continues the same checkout and the timer does not reset.",
+      "expect": {
+        "result": "ACCEPTED",
+        "fixed": ["loophole"],
+        "regressions": []
+      }
+    },
+    "bad": {
+      "text": "A member may keep a bike for at most one hour. Returning the bike to any dock ends the checkout.",
+      "expect": {
+        "result": "REJECTED",
+        "regressions": ["ordinary"]
+      }
+    }
+  }
+}
